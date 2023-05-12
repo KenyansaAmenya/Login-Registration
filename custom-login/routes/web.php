@@ -34,6 +34,7 @@ Route::post('/registration', [AuthManager::class, 'registrationPost'])->name('re
 //Logout Route
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
+//This makes sure that a user cannot access the profile page without login
 Route::group(['middleware' => 'auth'], function () {
     //Profile route
     Route::get('/profile', function () {
